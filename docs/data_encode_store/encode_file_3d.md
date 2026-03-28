@@ -1,0 +1,1 @@
+三维数据格式直接参考:http://www.bimant.com/docs/3dformat/
