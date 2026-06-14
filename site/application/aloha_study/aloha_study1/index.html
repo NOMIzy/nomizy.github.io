@@ -1,0 +1,379 @@
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="NOMI Wiki"><meta name=author content=NOMI><link href=https://nomizy.github.io/application/aloha_study/aloha_study1/ rel=canonical><link href=../../introduction/ rel=prev><link href=../../LLMG/communication_between_upper_and_lower_machine/ rel=next><link rel=icon href=../../../assets/images/favicon.png><meta name=generator content="mkdocs-1.5.3, mkdocs-material-9.5.16"><title>ALOHA开源项目学习 - NOMI-Wiki</title><link rel=stylesheet href=../../../assets/stylesheets/main.bcfcd587.min.css><link rel=stylesheet href=../../../assets/stylesheets/palette.06af60db.min.css><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CSource+Code+Pro:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Noto Sans";--md-code-font:"Source Code Pro"}</style><script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme=preference data-md-color-primary=white data-md-color-accent=red> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#aloha class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class="md-header md-header--shadow md-header--lifted" data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../../.. title=NOMI-Wiki class="md-header__button md-logo" aria-label=NOMI-Wiki data-md-component=logo> <img src=https://github.com/NOMIzy/resource_repository/raw/master/nomi.png alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> NOMI-Wiki </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> ALOHA开源项目学习 </span> </div> </div> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg> </label> <nav class=md-search__options aria-label=Search> <a href=javascript:void(0) class="md-search__icon md-icon" title=Share aria-label=Share data-clipboard data-clipboard-text data-md-component=search-share tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg> </a> <button type=reset class="md-search__icon md-icon" title=Clear aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg> </button> </nav> <div class=md-search__suggest data-md-component=search-suggest></div> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/NOMIzy/nomizy.github.io title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 480 512"><!-- Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg> </div> <div class=md-source__repository> NOMI-wiki </div> </a> </div> </nav> <nav class=md-tabs aria-label=Tabs data-md-component=tabs> <div class=md-grid> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=../../../introduction/intro/ class=md-tabs__link> Introduction </a> </li> <li class=md-tabs__item> <a href=../../../data_encode_store/introduction/ class=md-tabs__link> 数据编码与存储 </a> </li> <li class=md-tabs__item> <a href=../../../data_access/introduction/ class=md-tabs__link> 数据获取 </a> </li> <li class=md-tabs__item> <a href=../../../data_process/introduction/ class=md-tabs__link> 数据处理 </a> </li> <li class="md-tabs__item md-tabs__item--active"> <a href=../../introduction/ class=md-tabs__link> 应用集成 </a> </li> <li class=md-tabs__item> <a href=../../../think/%E8%A1%8C%E4%B8%9A%E9%80%89%E6%8B%A9/ class=md-tabs__link> 随笔 </a> </li> </ul> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary md-nav--lifted" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../../.. title=NOMI-Wiki class="md-nav__button md-logo" aria-label=NOMI-Wiki data-md-component=logo> <img src=https://github.com/NOMIzy/resource_repository/raw/master/nomi.png alt=logo> </a> NOMI-Wiki </label> <div class=md-nav__source> <a href=https://github.com/NOMIzy/nomizy.github.io title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 480 512"><!-- Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg> </div> <div class=md-source__repository> NOMI-wiki </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_1> <label class=md-nav__link for=__nav_1 id=__nav_1_label tabindex=0> <span class=md-ellipsis> Introduction </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_1_label aria-expanded=false> <label class=md-nav__title for=__nav_1> <span class="md-nav__icon md-icon"></span> Introduction </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../introduction/intro/ class=md-nav__link> <span class=md-ellipsis> 欢迎来到NOMI的wiki </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2> <label class=md-nav__link for=__nav_2 id=__nav_2_label tabindex=0> <span class=md-ellipsis> 数据编码与存储 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> 数据编码与存储 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_encode_store/introduction/ class=md-nav__link> <span class=md-ellipsis> 简介 </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_2> <label class=md-nav__link for=__nav_2_2 id=__nav_2_2_label tabindex=0> <span class=md-ellipsis> 字符编码格式 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_2_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2_2> <span class="md-nav__icon md-icon"></span> 字符编码格式 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_encode_store/encode_char/ class=md-nav__link> <span class=md-ellipsis> 字符的编码 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_3> <label class=md-nav__link for=__nav_2_3 id=__nav_2_3_label tabindex=0> <span class=md-ellipsis> 文件格式 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_2_3_label aria-expanded=false> <label class=md-nav__title for=__nav_2_3> <span class="md-nav__icon md-icon"></span> 文件格式 </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_3_1> <label class=md-nav__link for=__nav_2_3_1 id=__nav_2_3_1_label tabindex=0> <span class=md-ellipsis> 文本 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=3 aria-labelledby=__nav_2_3_1_label aria-expanded=false> <label class=md-nav__title for=__nav_2_3_1> <span class="md-nav__icon md-icon"></span> 文本 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_encode_store/encode_file_txt/ class=md-nav__link> <span class=md-ellipsis> 文本文件的编码 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_3_2> <label class=md-nav__link for=__nav_2_3_2 id=__nav_2_3_2_label tabindex=0> <span class=md-ellipsis> 图像 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=3 aria-labelledby=__nav_2_3_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2_3_2> <span class="md-nav__icon md-icon"></span> 图像 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_encode_store/encode_file_picture/ class=md-nav__link> <span class=md-ellipsis> Encode file picture </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_3_3> <label class=md-nav__link for=__nav_2_3_3 id=__nav_2_3_3_label tabindex=0> <span class=md-ellipsis> 视频 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=3 aria-labelledby=__nav_2_3_3_label aria-expanded=false> <label class=md-nav__title for=__nav_2_3_3> <span class="md-nav__icon md-icon"></span> 视频 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_encode_store/encode_file_video/ class=md-nav__link> <span class=md-ellipsis> Encode file video </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_3_4> <label class=md-nav__link for=__nav_2_3_4 id=__nav_2_3_4_label tabindex=0> <span class=md-ellipsis> 音频 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=3 aria-labelledby=__nav_2_3_4_label aria-expanded=false> <label class=md-nav__title for=__nav_2_3_4> <span class="md-nav__icon md-icon"></span> 音频 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_encode_store/encode_file_audio/ class=md-nav__link> <span class=md-ellipsis> Encode file audio </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_3_5> <label class=md-nav__link for=__nav_2_3_5 id=__nav_2_3_5_label tabindex=0> <span class=md-ellipsis> 3D资产 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=3 aria-labelledby=__nav_2_3_5_label aria-expanded=false> <label class=md-nav__title for=__nav_2_3_5> <span class="md-nav__icon md-icon"></span> 3D资产 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_encode_store/encode_file_3d/ class=md-nav__link> <span class=md-ellipsis> Encode file 3d </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_3> <label class=md-nav__link for=__nav_3 id=__nav_3_label tabindex=0> <span class=md-ellipsis> 数据获取 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_3_label aria-expanded=false> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> 数据获取 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_access/introduction/ class=md-nav__link> <span class=md-ellipsis> 简介 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4> <label class=md-nav__link for=__nav_4 id=__nav_4_label tabindex=0> <span class=md-ellipsis> 数据处理 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_4_label aria-expanded=false> <label class=md-nav__title for=__nav_4> <span class="md-nav__icon md-icon"></span> 数据处理 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_process/introduction/ class=md-nav__link> <span class=md-ellipsis> 简介 </span> </a> </li> <li class=md-nav__item> <a href=../../../data_process/%E7%BC%96%E7%A0%81%E4%B9%A0%E6%83%AF/ class=md-nav__link> <span class=md-ellipsis> 良好的编程风格 </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4_3> <label class=md-nav__link for=__nav_4_3 id=__nav_4_3_label tabindex=0> <span class=md-ellipsis> 常用数据结构处理 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_4_3_label aria-expanded=false> <label class=md-nav__title for=__nav_4_3> <span class="md-nav__icon md-icon"></span> 常用数据结构处理 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_process/basic_algorithm/intro/ class=md-nav__link> <span class=md-ellipsis> 写在开头 </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4_3_2> <label class=md-nav__link for=__nav_4_3_2 id=__nav_4_3_2_label tabindex=0> <span class=md-ellipsis> 基本算法 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=3 aria-labelledby=__nav_4_3_2_label aria-expanded=false> <label class=md-nav__title for=__nav_4_3_2> <span class="md-nav__icon md-icon"></span> 基本算法 </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4_3_2_1> <label class=md-nav__link for=__nav_4_3_2_1 id=__nav_4_3_2_1_label tabindex=0> <span class=md-ellipsis> STL </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=4 aria-labelledby=__nav_4_3_2_1_label aria-expanded=false> <label class=md-nav__title for=__nav_4_3_2_1> <span class="md-nav__icon md-icon"></span> STL </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_process/basic_algorithm/STL/STL/ class=md-nav__link> <span class=md-ellipsis> C++STL容器的基本原理与使用 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4_3_2_2> <label class=md-nav__link for=__nav_4_3_2_2 id=__nav_4_3_2_2_label tabindex=0> <span class=md-ellipsis> 字符串 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=4 aria-labelledby=__nav_4_3_2_2_label aria-expanded=false> <label class=md-nav__title for=__nav_4_3_2_2> <span class="md-nav__icon md-icon"></span> 字符串 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_process/basic_algorithm/string/string/ class=md-nav__link> <span class=md-ellipsis> 字符对象 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4_3_2_3> <label class=md-nav__link for=__nav_4_3_2_3 id=__nav_4_3_2_3_label tabindex=0> <span class=md-ellipsis> 数组 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=4 aria-labelledby=__nav_4_3_2_3_label aria-expanded=false> <label class=md-nav__title for=__nav_4_3_2_3> <span class="md-nav__icon md-icon"></span> 数组 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../data_process/basic_algorithm/array/intro/ class=md-nav__link> <span class=md-ellipsis> 数组 </span> </a> </li> <li class=md-nav__item> <a href=../../../data_process/basic_algorithm/array/%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0/ class=md-nav__link> <span class=md-ellipsis> 删除元素-双指针法 </span> </a> </li> <li class=md-nav__item> <a href=../../../data_process/basic_algorithm/array/%E6%9F%A5%E6%89%BE/ class=md-nav__link> <span class=md-ellipsis> 查找元素-二分查找 </span> </a> </li> <li class=md-nav__item> <a href=../../../data_process/basic_algorithm/array/%E6%8C%89%E6%9F%90%E7%A7%8D%E9%A1%BA%E5%BA%8F%E8%AE%BF%E9%97%AE%E7%9F%A9%E9%98%B5/ class=md-nav__link> <span class=md-ellipsis> 花式访问矩阵 </span> </a> </li> <li class=md-nav__item> <a href=../../../data_process/basic_algorithm/array/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%B3%95%E5%AF%BB%E6%89%BE%E6%BB%A1%E8%B6%B3%E6%9F%90%E4%B8%AA%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97/ class=md-nav__link> <span class=md-ellipsis> 满足某个条件的连续区间——滑动窗口法 </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_5 checked> <label class=md-nav__link for=__nav_5 id=__nav_5_label tabindex> <span class=md-ellipsis> 应用集成 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_5_label aria-expanded=true> <label class=md-nav__title for=__nav_5> <span class="md-nav__icon md-icon"></span> 应用集成 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../introduction/ class=md-nav__link> <span class=md-ellipsis> 涉及应用系统搭建的相关学习 </span> </a> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_5_2 checked> <label class=md-nav__link for=__nav_5_2 id=__nav_5_2_label tabindex=0> <span class=md-ellipsis> 机器人 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_5_2_label aria-expanded=true> <label class=md-nav__title for=__nav_5_2> <span class="md-nav__icon md-icon"></span> 机器人 </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> <span class=md-ellipsis> ALOHA开源项目学习 </span> <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> <span class=md-ellipsis> ALOHA开源项目学习 </span> </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#_1 class=md-nav__link> <span class=md-ellipsis> 采集机械臂运动时序信息 </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_5_3> <label class=md-nav__link for=__nav_5_3 id=__nav_5_3_label tabindex=0> <span class=md-ellipsis> 通信 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_5_3_label aria-expanded=false> <label class=md-nav__title for=__nav_5_3> <span class="md-nav__icon md-icon"></span> 通信 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../LLMG/communication_between_upper_and_lower_machine/ class=md-nav__link> <span class=md-ellipsis> 上位机与下位机间的通信实现 </span> </a> </li> <li class=md-nav__item> <a href=../../LLMG/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/ class=md-nav__link> <span class=md-ellipsis> 多线程编程 </span> </a> </li> <li class=md-nav__item> <a href=../../LLMG/rospy_topic/ class=md-nav__link> <span class=md-ellipsis> rospy的Topic实现 </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_6> <label class=md-nav__link for=__nav_6 id=__nav_6_label tabindex=0> <span class=md-ellipsis> 随笔 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_6_label aria-expanded=false> <label class=md-nav__title for=__nav_6> <span class="md-nav__icon md-icon"></span> 随笔 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../think/%E8%A1%8C%E4%B8%9A%E9%80%89%E6%8B%A9/ class=md-nav__link> <span class=md-ellipsis> 行业选择思考 </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_6_2> <label class=md-nav__link for=__nav_6_2 id=__nav_6_2_label tabindex=0> <span class=md-ellipsis> 玩具项目 </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_6_2_label aria-expanded=false> <label class=md-nav__title for=__nav_6_2> <span class="md-nav__icon md-icon"></span> 玩具项目 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../toys/%E7%A8%9A%E6%99%96%E5%90%9B%E5%B0%8F%E5%B1%8F%E5%B9%95/ class=md-nav__link> <span class=md-ellipsis> 分光棱镜透明桌面小电视 </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#_1 class=md-nav__link> <span class=md-ellipsis> 采集机械臂运动时序信息 </span> </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1 id=aloha>ALOHA开源项目学习</h1> <p><strong>目标</strong> 了解采集机器人（机械臂）运动时序信息的过程，了解使用运动时序信息进行模仿学习的过程。</p> <h2 id=_1>采集机械臂运动时序信息</h2> <p>整体过程是，人类操纵master双臂，采集master双臂的信息同步到puppet双臂，记录puppet双臂执行后的观测信息和图像信息。</p> <p>根据readme中： 运行 one_side_teleop.py 进行远程操作测试，不进行数据采集。如果要采集数据，请运行：</p> <pre><code class=language-shell>python3 record_episodes.py --dataset_dir &lt;data save dir&gt; 
+</code></pre> <p>这一条，看record_episodes.py中，实际进行数据采集的capture_one_episode（）函数：</p> <pre><code class=language-python>def capture_one_episode(dt, max_timesteps, camera_names, dataset_dir, dataset_name, overwrite):
+    print(f'Dataset name: {dataset_name}')
+
+    ### 此处获取主机械臂的对象
+    # source of data
+    master_bot_left = InterbotixManipulatorXS(robot_model=&quot;wx250s&quot;, group_name=&quot;arm&quot;, gripper_name=&quot;gripper&quot;,
+                                              robot_name=f'master_left', init_node=True)
+    master_bot_right = InterbotixManipulatorXS(robot_model=&quot;wx250s&quot;, group_name=&quot;arm&quot;, gripper_name=&quot;gripper&quot;,
+                                               robot_name=f'master_right', init_node=False)
+    env = make_real_env(init_node=False, setup_robots=False)
+
+    # saving dataset
+    if not os.path.isdir(dataset_dir):
+        os.makedirs(dataset_dir)
+    dataset_path = os.path.join(dataset_dir, dataset_name)
+    if os.path.isfile(dataset_path) and not overwrite:
+        print(f'Dataset already exist at \n{dataset_path}\nHint: set overwrite to True.')
+        exit()
+
+    # move all 4 robots to a starting pose where it is easy to start teleoperation, then wait till both gripper closed
+    opening_ceremony(master_bot_left, master_bot_right, env.puppet_bot_left, env.puppet_bot_right)
+
+    ### 按照设定帧率采集主机械臂的关节数据
+    # Data collection
+    ts = env.reset(fake=True)
+    timesteps = [ts]
+    actions = []
+    actual_dt_history = []
+    time0 = time.time()
+    DT = 1 / FPS
+    for t in tqdm(range(max_timesteps)):
+        t0 = time.time() #
+        action = get_action(master_bot_left, master_bot_right)  ### 每个时间片左右主机械臂各六个关节的.dxl.joint_states.position和gripper数据采集位置，这个函数做了一个归一化的包装
+        t1 = time.time() #
+        ts = env.step(action)   ### 根据主机械臂信息驱动从机械臂关节、末梢，获得从机械臂images、qpos、qvel、effort、base_vel、tracer_vel的观测值
+        t2 = time.time() #
+        timesteps.append(ts)
+        actions.append(action)
+        actual_dt_history.append([t0, t1, t2])
+        time.sleep(max(0, DT - (time.time() - t0)))
+    print(f'Avg fps: {max_timesteps / (time.time() - time0)}')
+
+    # Torque on both master bots
+    torque_on(master_bot_left)
+    torque_on(master_bot_right)
+    # Open puppet grippers
+    env.puppet_bot_left.dxl.robot_set_operating_modes(&quot;single&quot;, &quot;gripper&quot;, &quot;position&quot;)
+    env.puppet_bot_right.dxl.robot_set_operating_modes(&quot;single&quot;, &quot;gripper&quot;, &quot;position&quot;)
+    move_grippers([env.puppet_bot_left, env.puppet_bot_right], [PUPPET_GRIPPER_JOINT_OPEN] * 2, move_time=0.5)
+
+    freq_mean = print_dt_diagnosis(actual_dt_history)
+    if freq_mean &lt; 30:
+        print(f'\n\nfreq_mean is {freq_mean}, lower than 30, re-collecting... \n\n\n\n')
+        return False
+
+    &quot;&quot;&quot;
+    For each timestep:
+    observations
+    - images
+        - cam_high          (480, 640, 3) 'uint8'
+        - cam_low           (480, 640, 3) 'uint8'
+        - cam_left_wrist    (480, 640, 3) 'uint8'
+        - cam_right_wrist   (480, 640, 3) 'uint8'
+    - qpos                  (14,)         'float64'
+    - qvel                  (14,)         'float64'
+
+    action                  (14,)         'float64'
+    base_action             (2,)          'float64'
+    &quot;&quot;&quot;
+
+    data_dict = {
+        '/observations/qpos': [],
+        '/observations/qvel': [],
+        '/observations/effort': [],
+        '/action': [],
+        '/base_action': [],
+        # '/base_action_t265': [],
+    }
+    for cam_name in camera_names:
+        data_dict[f'/observations/images/{cam_name}'] = []
+
+    ### 实际记录主机械臂的信息
+    # len(action): max_timesteps, len(time_steps): max_timesteps + 1
+    while actions:
+        action = actions.pop(0)
+        ts = timesteps.pop(0)
+        data_dict['/observations/qpos'].append(ts.observation['qpos'])
+        data_dict['/observations/qvel'].append(ts.observation['qvel'])
+        data_dict['/observations/effort'].append(ts.observation['effort'])
+        data_dict['/action'].append(action)
+        data_dict['/base_action'].append(ts.observation['base_vel'])
+        # data_dict['/base_action_t265'].append(ts.observation['base_vel_t265'])
+        for cam_name in camera_names:
+            data_dict[f'/observations/images/{cam_name}'].append(ts.observation['images'][cam_name])
+
+    # plot /base_action vs /base_action_t265
+    # import matplotlib.pyplot as plt
+    # plt.plot(np.array(data_dict['/base_action'])[:, 0], label='base_action_linear')
+    # plt.plot(np.array(data_dict['/base_action'])[:, 1], label='base_action_angular')
+    # plt.plot(np.array(data_dict['/base_action_t265'])[:, 0], '--', label='base_action_t265_linear')
+    # plt.plot(np.array(data_dict['/base_action_t265'])[:, 1], '--', label='base_action_t265_angular')
+    # plt.legend()
+    # plt.savefig('record_episodes_vel_debug.png', dpi=300)
+
+    COMPRESS = True
+
+    if COMPRESS:
+        # JPEG compression
+        t0 = time.time()
+        encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 50] # tried as low as 20, seems fine
+        compressed_len = []
+        for cam_name in camera_names:
+            image_list = data_dict[f'/observations/images/{cam_name}']
+            compressed_list = []
+            compressed_len.append([])
+            for image in image_list:
+                result, encoded_image = cv2.imencode('.jpg', image, encode_param) # 0.02 sec # cv2.imdecode(encoded_image, 1)
+                compressed_list.append(encoded_image)
+                compressed_len[-1].append(len(encoded_image))
+            data_dict[f'/observations/images/{cam_name}'] = compressed_list
+        print(f'compression: {time.time() - t0:.2f}s')
+
+        # pad so it has same length
+        t0 = time.time()
+        compressed_len = np.array(compressed_len)
+        padded_size = compressed_len.max()
+        for cam_name in camera_names:
+            compressed_image_list = data_dict[f'/observations/images/{cam_name}']
+            padded_compressed_image_list = []
+            for compressed_image in compressed_image_list:
+                padded_compressed_image = np.zeros(padded_size, dtype='uint8')
+                image_len = len(compressed_image)
+                padded_compressed_image[:image_len] = compressed_image
+                padded_compressed_image_list.append(padded_compressed_image)
+            data_dict[f'/observations/images/{cam_name}'] = padded_compressed_image_list
+        print(f'padding: {time.time() - t0:.2f}s')
+
+    # HDF5
+    t0 = time.time()
+    with h5py.File(dataset_path + '.hdf5', 'w', rdcc_nbytes=1024**2*2) as root:
+        root.attrs['sim'] = False
+        root.attrs['compress'] = COMPRESS
+        obs = root.create_group('observations')
+        image = obs.create_group('images')
+        for cam_name in camera_names:
+            if COMPRESS:
+                _ = image.create_dataset(cam_name, (max_timesteps, padded_size), dtype='uint8',
+                                         chunks=(1, padded_size), )
+            else:
+                _ = image.create_dataset(cam_name, (max_timesteps, 480, 640, 3), dtype='uint8',
+                                         chunks=(1, 480, 640, 3), )
+        _ = obs.create_dataset('qpos', (max_timesteps, 14))
+        _ = obs.create_dataset('qvel', (max_timesteps, 14))
+        _ = obs.create_dataset('effort', (max_timesteps, 14))
+        _ = root.create_dataset('action', (max_timesteps, 14))
+        _ = root.create_dataset('base_action', (max_timesteps, 2))
+        # _ = root.create_dataset('base_action_t265', (max_timesteps, 2))
+
+        for name, array in data_dict.items():
+            root[name][...] = array
+
+        if COMPRESS:
+            _ = root.create_dataset('compress_len', (len(camera_names), max_timesteps))
+            root['/compress_len'][...] = compressed_len
+
+    print(f'Saving: {time.time() - t0:.1f} secs')
+
+    return True
+</code></pre> <p>可以看到根据给定帧率（但似乎不保证处理较慢的情况）调用主左右机械臂API获取每个时间片：</p> <p>root ├── observations │ ├── images【当前摄像头图片】 │ │ ├── cam_name1 (max_timesteps, padded_size) 或 (max_timesteps, 480, 640, 3) │ │ ├── cam_name2 (max_timesteps, padded_size) 或 (max_timesteps, 480, 640, 3) │ │ └── ... (更多相机名称) │ ├── qpos (max_timesteps, 14) 【机械臂位置】 │ ├── qvel (max_timesteps, 14) 【机械臂速度】 │ └── effort (max_timesteps, 14) 【机械臂力矩】 ├── action (max_timesteps, 14) 【机械臂关节信息、末梢gripper信息】 └── base_action (max_timesteps, 2) 【base_vel这个变量】</p> <p>的数据，并存储为HDF5格式（HDF5（Hierarchical Data Format Version 5）是一种用于存储和管理异构和大规模科学数据的文件格式。HDF5使用一种层次结构，将数据存储在层次结构中的各种节点中。HDF5节点可以是数据集、组、属性或链接。数据集是存储一组数据的基本节点类型，可以是多维数组或表格。组是一种逻辑容器，可以包含多个数据集和子组。属性是与数据集或组关联的元数据，它们描述了数据或组的特征。链接是指向数据集或组的符号链接或硬链接。HDF5文件可以存储不同类型的数据，包括数值、字符串、图像、声音和视频等。HDF5文件还支持压缩和加密数据的功能。http://www.bimant.com/docs/3dformat/HDF5/）</p> <p>机械臂厂家提供的数据接口被包装于real_env.py中提供的env实例，env中的Recoder对象实际与ros节点通信获得图片、机械臂的信息。</p> <p>env的类定义为：</p> <pre><code class=language-python>
+class RealEnv:
+    &quot;&quot;&quot;
+    Environment for real robot bi-manual manipulation
+    Action space:      [left_arm_qpos (6),             # absolute joint position
+                        left_gripper_positions (1),    # normalized gripper position (0: close, 1: open)
+                        right_arm_qpos (6),            # absolute joint position
+                        right_gripper_positions (1),]  # normalized gripper position (0: close, 1: open)
+
+    Observation space: {&quot;qpos&quot;: Concat[ left_arm_qpos (6),          # absolute joint position
+                                        left_gripper_position (1),  # normalized gripper position (0: close, 1: open)
+                                        right_arm_qpos (6),         # absolute joint position
+                                        right_gripper_qpos (1)]     # normalized gripper position (0: close, 1: open)
+                        &quot;qvel&quot;: Concat[ left_arm_qvel (6),         # absolute joint velocity (rad)
+                                        left_gripper_velocity (1),  # normalized gripper velocity (pos: opening, neg: closing)
+                                        right_arm_qvel (6),         # absolute joint velocity (rad)
+                                        right_gripper_qvel (1)]     # normalized gripper velocity (pos: opening, neg: closing)
+                        &quot;images&quot;: {&quot;cam_high&quot;: (480x640x3),        # h, w, c, dtype='uint8'
+                                   &quot;cam_low&quot;: (480x640x3),         # h, w, c, dtype='uint8'
+                                   &quot;cam_left_wrist&quot;: (480x640x3),  # h, w, c, dtype='uint8'
+                                   &quot;cam_right_wrist&quot;: (480x640x3)} # h, w, c, dtype='uint8'
+    &quot;&quot;&quot;
+
+    def __init__(self, init_node, setup_robots=True, setup_base=False):
+        self.puppet_bot_left = InterbotixManipulatorXS(robot_model=&quot;vx300s&quot;, group_name=&quot;arm&quot;, gripper_name=&quot;gripper&quot;,
+                                                       robot_name=f'puppet_left', init_node=init_node)
+        self.puppet_bot_right = InterbotixManipulatorXS(robot_model=&quot;vx300s&quot;, group_name=&quot;arm&quot;, gripper_name=&quot;gripper&quot;,
+                                                        robot_name=f'puppet_right', init_node=False)
+        if setup_robots:
+            self.setup_robots()
+
+        if setup_base:
+            self.setup_base()
+
+        # self.setup_t265()
+        self.setup_dxl()
+
+        ### 以下的三个recorder是实际与ros节点通信的
+        self.recorder_left = Recorder('left', init_node=False)
+        self.recorder_right = Recorder('right', init_node=False)
+        self.image_recorder = ImageRecorder(init_node=False)
+        ### 这个函数不在项目本身的代码中，可能是机械臂提供的API
+        self.gripper_command = JointSingleCommand(name=&quot;gripper&quot;)
+
+    def setup_t265(self):
+        self.pipeline = rs.pipeline()
+        cfg = rs.config()
+        # if only pose stream is enabled, fps is higher (202 vs 30)
+        cfg.enable_stream(rs.stream.pose)
+        self.pipeline.start(cfg)
+
+    def setup_dxl(self):
+        self.dxl_client = DynamixelClient([1, 2], port='/dev/ttyDXL_wheels', lazy_connect=True)
+        self.wheel_r = 0.101 / 2  # 101 mm is the diameter
+        self.base_r = 0.622  # 622 mm is the distance between the two wheels
+
+    def setup_base(self):
+        self.tracer = pyagxrobots.pysdkugv.TracerBase()
+        self.tracer.EnableCAN()
+
+    def setup_robots(self):
+        setup_puppet_bot(self.puppet_bot_left)
+        setup_puppet_bot(self.puppet_bot_right)
+
+    def get_qpos(self):
+        left_qpos_raw = self.recorder_left.qpos
+        right_qpos_raw = self.recorder_right.qpos
+        left_arm_qpos = left_qpos_raw[:6]
+        right_arm_qpos = right_qpos_raw[:6]
+        left_gripper_qpos = [PUPPET_GRIPPER_POSITION_NORMALIZE_FN(left_qpos_raw[7])] # this is position not joint
+        right_gripper_qpos = [PUPPET_GRIPPER_POSITION_NORMALIZE_FN(right_qpos_raw[7])] # this is position not joint
+        return np.concatenate([left_arm_qpos, left_gripper_qpos, right_arm_qpos, right_gripper_qpos])
+
+    def get_qvel(self):
+        left_qvel_raw = self.recorder_left.qvel
+        right_qvel_raw = self.recorder_right.qvel
+        left_arm_qvel = left_qvel_raw[:6]
+        right_arm_qvel = right_qvel_raw[:6]
+        left_gripper_qvel = [PUPPET_GRIPPER_VELOCITY_NORMALIZE_FN(left_qvel_raw[7])]
+        right_gripper_qvel = [PUPPET_GRIPPER_VELOCITY_NORMALIZE_FN(right_qvel_raw[7])]
+        return np.concatenate([left_arm_qvel, left_gripper_qvel, right_arm_qvel, right_gripper_qvel])
+
+    def get_effort(self):
+        left_effort_raw = self.recorder_left.effort
+        right_effort_raw = self.recorder_right.effort
+        left_robot_effort = left_effort_raw[:7]
+        right_robot_effort = right_effort_raw[:7]
+        return np.concatenate([left_robot_effort, right_robot_effort])
+
+    def get_images(self):
+        return self.image_recorder.get_images()
+
+    def get_base_vel_t265(self):
+        raise NotImplementedError
+        frames = self.pipeline.wait_for_frames()
+        pose_frame = frames.get_pose_frame()
+        pose = pose_frame.get_pose_data()
+
+        q1 = Quaternion(w=pose.rotation.w, x=pose.rotation.x, y=pose.rotation.y, z=pose.rotation.z)
+        rotation = -np.array(q1.yaw_pitch_roll)[0]
+        rotation_vec = np.array([np.cos(rotation), np.sin(rotation)])
+        linear_vel_vec = np.array([pose.velocity.z, pose.velocity.x])
+        is_forward = rotation_vec.dot(linear_vel_vec) &gt; 0
+
+        base_linear_vel = np.sqrt(pose.velocity.z ** 2 + pose.velocity.x ** 2) * (1 if is_forward else -1)
+        base_angular_vel = pose.angular_velocity.y
+        return np.array([base_linear_vel, base_angular_vel])
+
+    def get_base_vel(self):
+        left_vel, right_vel = self.dxl_client.read_pos_vel_cur()[1]
+        right_vel = -right_vel # right wheel is inverted
+        base_linear_vel = (left_vel + right_vel) * self.wheel_r / 2
+        base_angular_vel = (right_vel - left_vel) * self.wheel_r / self.base_r
+
+        return np.array([base_linear_vel, base_angular_vel])
+
+    def get_tracer_vel(self):
+        linear_vel, angular_vel = self.tracer.GetLinearVelocity(), self.tracer.GetAngularVelocity()
+        return np.array([linear_vel, angular_vel])
+
+
+    def set_gripper_pose(self, left_gripper_desired_pos_normalized, right_gripper_desired_pos_normalized):
+        left_gripper_desired_joint = PUPPET_GRIPPER_JOINT_UNNORMALIZE_FN(left_gripper_desired_pos_normalized)
+        self.gripper_command.cmd = left_gripper_desired_joint
+        self.puppet_bot_left.gripper.core.pub_single.publish(self.gripper_command)
+
+        right_gripper_desired_joint = PUPPET_GRIPPER_JOINT_UNNORMALIZE_FN(right_gripper_desired_pos_normalized)
+        self.gripper_command.cmd = right_gripper_desired_joint
+        self.puppet_bot_right.gripper.core.pub_single.publish(self.gripper_command)
+
+    def _reset_joints(self):
+        reset_position = START_ARM_POSE[:6]
+        move_arms([self.puppet_bot_left, self.puppet_bot_right], [reset_position, reset_position], move_time=1)
+
+    def _reset_gripper(self):
+        &quot;&quot;&quot;Set to position mode and do position resets: first open then close. Then change back to PWM mode&quot;&quot;&quot;
+        move_grippers([self.puppet_bot_left, self.puppet_bot_right], [PUPPET_GRIPPER_JOINT_OPEN] * 2, move_time=0.5)
+        move_grippers([self.puppet_bot_left, self.puppet_bot_right], [PUPPET_GRIPPER_JOINT_CLOSE] * 2, move_time=1)
+
+    def get_observation(self, get_tracer_vel=False):
+        obs = collections.OrderedDict()
+        obs['qpos'] = self.get_qpos()
+        obs['qvel'] = self.get_qvel()
+        obs['effort'] = self.get_effort()
+        obs['images'] = self.get_images()
+        # obs['base_vel_t265'] = self.get_base_vel_t265()
+        obs['base_vel'] = self.get_base_vel()
+        if get_tracer_vel:
+            obs['tracer_vel'] = self.get_tracer_vel()
+        return obs
+
+    def get_reward(self):
+        return 0
+
+    def reset(self, fake=False):
+        if not fake:
+            # Reboot puppet robot gripper motors
+            self.puppet_bot_left.dxl.robot_reboot_motors(&quot;single&quot;, &quot;gripper&quot;, True)
+            self.puppet_bot_right.dxl.robot_reboot_motors(&quot;single&quot;, &quot;gripper&quot;, True)
+            self._reset_joints()
+            self._reset_gripper()
+        return dm_env.TimeStep(
+            step_type=dm_env.StepType.FIRST,
+            reward=self.get_reward(),
+            discount=None,
+            observation=self.get_observation())
+
+    def step(self, action, base_action=None, get_tracer_vel=False, get_obs=True):
+        state_len = int(len(action) / 2)
+        left_action = action[:state_len]
+        right_action = action[state_len:]
+        self.puppet_bot_left.arm.set_joint_positions(left_action[:6], blocking=False)
+        self.puppet_bot_right.arm.set_joint_positions(right_action[:6], blocking=False)
+        self.set_gripper_pose(left_action[-1], right_action[-1])
+        if base_action is not None:
+            # linear_vel_limit = 1.5
+            # angular_vel_limit = 1.5
+            # base_action_linear = np.clip(base_action[0], -linear_vel_limit, linear_vel_limit)
+            # base_action_angular = np.clip(base_action[1], -angular_vel_limit, angular_vel_limit)
+            base_action_linear, base_action_angular = base_action
+            self.tracer.SetMotionCommand(linear_vel=base_action_linear, angular_vel=base_action_angular)
+        # time.sleep(DT)
+        if get_obs:
+            obs = self.get_observation(get_tracer_vel)
+        else:
+            obs = None
+        return dm_env.TimeStep(
+            step_type=dm_env.StepType.MID,
+            reward=self.get_reward(),
+            discount=None,
+            observation=obs)
+
+def get_action(master_bot_left, master_bot_right):
+    action = np.zeros(14) # 6 joint + 1 gripper, for two arms
+    # Arm actions
+    action[:6] = master_bot_left.dxl.joint_states.position[:6]
+    action[7:7+6] = master_bot_right.dxl.joint_states.position[:6]
+    # Gripper actions
+    action[6] = MASTER_GRIPPER_JOINT_NORMALIZE_FN(master_bot_left.dxl.joint_states.position[6])
+    action[7+6] = MASTER_GRIPPER_JOINT_NORMALIZE_FN(master_bot_right.dxl.joint_states.position[6])
+
+    return action
+</code></pre> <p>原始到对机械臂厂家提供的API的调用：</p> <p><strong>位置</strong></p> <pre><code class=language-python>    action = np.zeros(14) # 6 joint + 1 gripper, for two arms
+    # Arm actions
+    action[:6] = master_bot_left.dxl.joint_states.position[:6]
+    action[7:7+6] = master_bot_right.dxl.joint_states.position[:6]
+    # Gripper actions
+    action[6] = MASTER_GRIPPER_JOINT_NORMALIZE_FN(master_bot_left.dxl.joint_states.position[6])
+    action[7+6] = MASTER_GRIPPER_JOINT_NORMALIZE_FN(master_bot_right.dxl.joint_states.position[6])
+</code></pre> <p>dxl.joint_states.position这个属性是个数组，记录了当前机械臂各个关节的位置信息和夹爪位置</p> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> Copyright &copy; 2024 - Future NOMI </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script> <script src=../../../assets/javascripts/bundle.bd41221c.min.js></script> </body> </html>
